@@ -1,10 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { QuoteService } from 'src/app/services/quote/quote.service';
-
-interface Quote {
-  text: string;
-  author: string;
-}
+import Quote from 'src/app/models/quote';
 
 @Component({
   selector: 'app-quote',
@@ -25,9 +21,9 @@ export class QuoteComponent implements OnInit {
   }
 
   newQuote(): void {
-    this.changeColor.emit();
     this.quote = null;
     this.quoteService.fetchQuotes().subscribe((q: Quote) => {
+      this.changeColor.emit();
       this.quote = q;
     });
   }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap, toArray } from 'rxjs/operators';
+import Quote from 'src/app/models/quote';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ export class QuoteService {
 
   constructor(private http: HttpClient) {}
 
-  fetchQuotes(): Observable<any> {
+  fetchQuotes(): Observable<Quote> {
     return this.http.get(this.BASE_URL).pipe(
       map((q) => q[this.getRandomNumber()]),
       catchError(this.handleError<any>('getQuote', []))

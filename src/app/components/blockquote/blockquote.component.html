@@ -1,0 +1,7 @@
+<div *ngIf="!quote">Loading...</div>
+<blockquote *ngIf="quote" class="blockquote">
+  <p class="mb-0">{{ quote.text }}</p>
+  <footer class="blockquote-footer mt-2">
+    {{ quote.author ? quote.author : "Unknown Author" }}
+  </footer>
+</blockquote>

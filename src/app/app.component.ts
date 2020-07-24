@@ -9,9 +9,7 @@ import { ColorService } from './services/color/color.service';
 export class AppComponent implements OnInit {
   color: string;
 
-  constructor(private colorService: ColorService) {
-    this.getRandomColor();
-  }
+  constructor(private colorService: ColorService) {}
 
   onChangeColor() {
     this.getRandomColor();
